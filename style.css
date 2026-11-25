@@ -1,0 +1,181 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px 16px;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    background-color: #101214;
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#displayPanel {
+    width: 100%;
+    max-width: 650px;
+    padding: 30px 12px;
+    margin-bottom: 18px;
+
+    border-radius: 20px;
+    background-color: #166534;
+    transition: background-color 0.3s ease;
+
+    container-type: inline-size;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: normal;
+    color: #ffffff;
+    margin: 0 0 30px;
+}
+
+#phase {
+    font-size: 26px;
+    color: #ffffff;
+    margin: 0;
+}
+
+#timer {
+    font-size: clamp(60px, 32cqw, 180px);
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+    margin: 15px 0 0;
+    color: #ffffff;
+}
+
+/* 時間設定區域 */
+
+#settings {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 450px;
+    margin-bottom: 24px;
+}
+
+#settings > div {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 8px;
+    border-radius: 12px;
+    background-color: #202428;
+}
+
+#settings h3 {
+    font-size: 16px;
+    margin: 0 0 15px;
+}
+
+#settings > div:first-child h3 {
+    color: #4ade80;
+}
+
+#settings > div:last-child h3 {
+    color: #fbbf24;
+}
+
+/* 數字輸入欄位 */
+
+input {
+    width: 45px;
+    padding: 10px 2px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #34383e;
+    color: white;
+
+    font-size: 20px;
+    text-align: center;
+}
+
+input:disabled {
+    opacity: 0.5;
+}
+
+/* 操作按鈕 */
+
+button {
+    width: 100%;
+    max-width: 450px;
+
+    padding: 18px;
+    margin-bottom: 12px;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+#startBtn {
+    background-color: #4ade80;
+    color: #101214;
+}
+
+#resetBtn {
+    background-color: transparent;
+    border: 1px solid #42464b;
+    color: white;
+}
+
+button:active {
+    opacity: 0.7;
+}
+
+/* 休息階段 */
+
+/* 休息階段 */
+
+body.rest #displayPanel {
+    background-color: #b45309;
+}
+
+body.rest #startBtn {
+    background-color: #fbbf24;
+}
+
+/* 橫向手機畫面 */
+
+@media (orientation: landscape) and (max-height: 500px) {
+    body {
+        justify-content: flex-start;
+        padding: 12px;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    #timer {
+        font-size: clamp(60px, 26vh, 130px);
+        margin: 5px 0 15px;
+    }
+
+    #settings {
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px;
+        margin-bottom: 8px;
+    }
+}
