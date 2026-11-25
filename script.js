@@ -118,7 +118,6 @@ function playEndSound() {
 // 讀取使用者設定
 function readSettings() {
     if (inputs.some(input =>
-        input.value === "" ||
         !input.checkValidity() ||
         !Number.isInteger(Number(input.value))
     )) {
@@ -277,6 +276,7 @@ resetBtn.addEventListener("click", function () {
 });
 
 // 修改設定時同步更新畫面
+
 inputs.forEach(input => {
     input.addEventListener("input", function () {
         if (!hasStarted && readSettings()) {
@@ -284,6 +284,14 @@ inputs.forEach(input => {
             updateDisplay();
         }
     });
+
+    // 離開輸入框時，自動補上 0
+    input.addEventListener("blur", function () {
+        if (input.value === "") {
+            input.value = "0";
+        }
+    });
 });
+
 
 updateDisplay();
